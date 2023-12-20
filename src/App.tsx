@@ -1,7 +1,7 @@
 import './App.css';
 import styled from 'styled-components';
-import { ScrollAnimation } from './lib';
 import React from 'react';
+import { ScrollAnimation } from '@lasbe/react-scroll-animation';
 
 const Container = styled.div`
   display: flex;
