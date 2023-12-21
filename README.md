@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# @lasbe/react-scroll-animation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+손쉽게 스크롤 애니메이션을 구현할 수 있는 리액트 컴포넌트 패키지입니다.  
+[Github](https://github.com/LasBe-code/react-scroll-animation)  
+[CodeSandbox 예제](https://codesandbox.io/s/sharp-herschel-sgvnhq?file=/src/App.tsx)
 
-## Available Scripts
+### install
 
-In the project directory, you can run:
+```bash
+$ npm i @lasbe/react-scroll-animation
+```
 
-### `npm start`
+### `<ScrollAnimation />` Props
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+|   **Prop**    | **Type**                                                      | **description**                                                                    |
+| :-----------: | ------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| startingPoint | '`top`' or '`right`' or '`bottom`' or '`left`' or `undefined` | default: 'top', 애니메이션 시작 지점입니다.                                        |
+|   duration    | `number` or `undefined`                                       | default: 1, 애니메이션 지속시간입니다. 단위는 '초'이며 0보다 작을 수 없습니다.     |
+|    amount     | `number` or `undefined`                                       | default: 100, 애니메이션 움직임의 양입니다. 단위는 px이며, 0보다 작을 수 없습니다. |
+|    repeat     | `boolean` or `undefined`                                      | default: false, 범위를 벗어났을 때 애니메이션 재적용 여부입니다.                   |
+|    ...rest    | `React.ComponentProps<'div'>`                                 | 기본적인 div HTML Element properties를 사용해 요소를 핸들링할 수 있습니다.         |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 사용 방법
 
-### `npm test`
+`ScrollAnimation`을 감싸주기만 하면 감싸진 요소가 사용자 화면 안에 들어올 때 애니메이션이 트리거 됩니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+import { ScrollAnimation } from '@lasbe/react-scroll-animation';
 
-### `npm run build`
+function App() {
+  return (
+    <>
+      <div>
+        <ScrollAnimation startingPoint="left" amount={300}>
+          <div>요소1</div>
+        </ScrollAnimation>
+        <ScrollAnimation startingPoint="right" amount={300} duration={0.5} repeat={true}>
+          <div>요소2</div>
+        </ScrollAnimation>
+      </div>
+      <div>
+        <ScrollAnimation startingPoint="top" amount={300} repeat={true}>
+          <div>요소3</div>
+        </ScrollAnimation>
+        <ScrollAnimation startingPoint="bottom" amount={300}>
+          <div>요소4</div>
+        </ScrollAnimation>
+      </div>
+    </>
+  );
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default App;
+```
