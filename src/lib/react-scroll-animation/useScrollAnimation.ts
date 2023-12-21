@@ -26,7 +26,7 @@ export const useScrollAnimation = (repeat: boolean) => {
     return () => {
       observer.disconnect(); // 컴포넌트 언마운트 시 관찰 중단
     };
-  }, []);
+  }, [repeat]);
 
   return { isInViewport, ref };
 };

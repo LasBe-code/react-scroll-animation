@@ -1,28 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "noEmit": false, // 출력을 내보내지 않음
+    "declaration": true, // d.ts 파일 생성할지
+    "outDir": "dist", // 빌드 파일 생성 경로
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "allowJs": true, // JS 파일 컴파일 허용
-    "noEmit": false, // 컴파일러가 출력 파일 생성
-    "declaration": true, // .d.ts 선언 파일 생성
-    "outDir": "dist", // 컴파일된 파일 저장 디렉토리
-    "allowSyntheticDefaultImports": true, // 디폴트 모듈 import 문법 사용 허용
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "jsx": "react-jsx"
   },
-  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["./src/lib/**/*.tsx", "./src/lib/**/*.ts"]
 }

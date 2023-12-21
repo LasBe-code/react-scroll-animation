@@ -1,4 +1,3 @@
-import './App.css';
 import styled from 'styled-components';
 import React from 'react';
 import { ScrollAnimation } from '@lasbe/react-scroll-animation';
