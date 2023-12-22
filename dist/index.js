@@ -1,1 +1,1 @@
-export { ScrollAnimation } from './ScrollAnimation';
+export * from './react-scroll-animation';
