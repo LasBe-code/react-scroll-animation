@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import { ScrollAnimation } from '@lasbe/react-scroll-animation';
+import { ScrollAnimation } from './lib';
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ function App() {
         <ScrollAnimation startingPoint="left" amount={300}>
           <Wrapper onClick={() => console.log('hi')}>abc</Wrapper>
         </ScrollAnimation>
-        <ScrollAnimation startingPoint="right" amount={300} duration={0.5} repeat={true}>
+        <ScrollAnimation startingPoint="right" amount={300} duration={0.5} repeat={true} delay={1}>
           <Wrapper>abc</Wrapper>
         </ScrollAnimation>
       </Container>

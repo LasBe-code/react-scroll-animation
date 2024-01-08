@@ -1,6 +1,6 @@
 {
   "name": "@lasbe/react-scroll-animation",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",

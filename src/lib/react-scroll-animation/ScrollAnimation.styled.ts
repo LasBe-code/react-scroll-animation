@@ -17,8 +17,9 @@ const frameInAnimation = (animation: Omit<ScrollAnimationTypes, 'duration' | 're
 `;
 
 export const Container = styled.div<ScrollAnimationTypes>`
+  transition: ${(props) => props.duration};
   &.frame-in {
     animation: ${(props) => frameInAnimation({ startingPoint: props.startingPoint, amount: props.amount })} ${(props) => props.duration}s
-      forwards;
+      forwards ease-out;
   }
 `;
