@@ -35,7 +35,7 @@ function App() {
       <ScrollAnimation>
         <div>요소1</div>
       </ScrollAnimation>
-      <ScrollAnimation startingPoint="right" amount={300} duration={1} duration={1} repeat={true}>
+      <ScrollAnimation startingPoint="right" amount={300} duration={1} delay={1} repeat={true}>
         <div>요소2</div>
       </ScrollAnimation>
     </div>
