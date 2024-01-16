@@ -16,7 +16,8 @@ const frameInAnimation = (animation: Omit<ScrollAnimationTypes, 'duration' | 're
   }
 `;
 
-export const Container = styled.div<ScrollAnimationTypes>`
+export const Container = styled.div<ScrollAnimationTypes & { visible: boolean }>`
+  ${(props) => !props.visible && 'opacity:0;'}
   transition: ${(props) => props.duration};
   &.frame-in {
     animation: ${(props) => frameInAnimation({ startingPoint: props.startingPoint, amount: props.amount })} ${(props) => props.duration}s

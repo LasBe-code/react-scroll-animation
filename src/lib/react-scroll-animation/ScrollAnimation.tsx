@@ -52,9 +52,10 @@ export const ScrollAnimation = ({
       startingPoint={startingPoint}
       duration={duration}
       amount={amount}
+      visible={isInViewport}
       className={isInViewport ? `frame-in ${rest.className}` : rest.className}
     >
-      {isInViewport && children}
+      {children}
     </Container>
   );
 };

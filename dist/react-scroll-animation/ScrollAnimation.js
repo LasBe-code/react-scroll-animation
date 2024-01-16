@@ -51,5 +51,5 @@ export var ScrollAnimation = function (_a) {
         throw new Error('amount 값(애니메이션 움직임 양)은 0보다 작을 수 없습니다.');
     if (delay < 0)
         throw new Error('딜레이 시간은 0보다 작을 수 없습니다.');
-    return (_jsx(Container, __assign({}, rest, { ref: ref, startingPoint: startingPoint, duration: duration, amount: amount, className: isInViewport ? "frame-in ".concat(rest.className) : rest.className }, { children: isInViewport && children })));
+    return (_jsx(Container, __assign({}, rest, { ref: ref, startingPoint: startingPoint, duration: duration, amount: amount, visible: isInViewport, className: isInViewport ? "frame-in ".concat(rest.className) : rest.className }, { children: children })));
 };
