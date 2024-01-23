@@ -1,13 +1,13 @@
 import styled, { keyframes } from 'styled-components';
-import { ScrollAnimationTypes } from './ScrollAnimation.types';
+import { ScrollAnimationStyledTypes } from './ScrollAnimation.types';
 
-const frameInAnimation = (animation: Omit<ScrollAnimationTypes, 'duration' | 'repeat'>) => keyframes`
+const frameInAnimation = (animation: Omit<ScrollAnimationStyledTypes, 'duration' | 'repeat'>) => keyframes`
   0% {
     opacity: 0;
-    ${animation.startingPoint === 'top' && `transform: translateY(-${animation.amount}px);`}
-    ${animation.startingPoint === 'bottom' && `transform: translateY(${animation.amount}px);`}
-    ${animation.startingPoint === 'right' && `transform: translateX(${animation.amount}px);`}
-    ${animation.startingPoint === 'left' && `transform: translateX(-${animation.amount}px);`}
+    ${animation.$startingPoint === 'top' && `transform: translateY(-${animation.$amount}px);`}
+    ${animation.$startingPoint === 'bottom' && `transform: translateY(${animation.$amount}px);`}
+    ${animation.$startingPoint === 'right' && `transform: translateX(${animation.$amount}px);`}
+    ${animation.$startingPoint === 'left' && `transform: translateX(-${animation.$amount}px);`}
   }
 
   100%{
@@ -16,11 +16,11 @@ const frameInAnimation = (animation: Omit<ScrollAnimationTypes, 'duration' | 're
   }
 `;
 
-export const Container = styled.div<ScrollAnimationTypes & { visible: boolean }>`
-  ${(props) => !props.visible && 'opacity:0;'}
-  transition: ${(props) => props.duration};
+export const Container = styled.div<ScrollAnimationStyledTypes & { $visible: boolean }>`
+  ${(props) => !props.$visible && 'opacity:0;'}
+  transition: ${(props) => props.$duration};
   &.frame-in {
-    animation: ${(props) => frameInAnimation({ startingPoint: props.startingPoint, amount: props.amount })} ${(props) => props.duration}s
-      forwards ease-out;
+    animation: ${(props) => frameInAnimation({ $startingPoint: props.$startingPoint, $amount: props.$amount })}
+      ${(props) => props.$duration}s forwards ease-out;
   }
 `;

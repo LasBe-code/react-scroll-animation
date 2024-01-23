@@ -6,3 +6,10 @@ export type ScrollAnimationTypes = {
     delay?: number;
     repeat?: boolean;
 };
+export type ScrollAnimationStyledTypes = {
+    $startingPoint?: StartingPoint;
+    $duration?: number;
+    $amount?: number;
+    $delay?: number;
+    $repeat?: boolean;
+};
