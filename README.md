@@ -3,7 +3,7 @@
 손쉽게 스크롤 애니메이션을 구현할 수 있는 리액트 컴포넌트 패키지입니다.  
 [Github Repository](https://github.com/LasBe-code/react-scroll-animation)  
 [NPM](https://www.npmjs.com/package/@lasbe/react-scroll-animation)  
-[CodeSandbox 사용 예제](https://codesandbox.io/s/sharp-herschel-sgvnhq?file=/src/App.tsx)
+[CodeSandbox 사용 예제](https://codesandbox.io/embed/lasbe-react-scroll-animation-2phykg?fontsize=14&hidenavigation=1&theme=dark)
 
 ### install
 
