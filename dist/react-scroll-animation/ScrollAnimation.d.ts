@@ -1,13 +1,16 @@
-/// <reference types="react" />
-import { ScrollAnimationTypes } from './ScrollAnimation.types';
-/**
- * 1. 애니메이션 시작지점
- * 2. 애니메이션 지속 시간
- * 3. 애니메이션 움직임 크기
- */
+import React from 'react';
+import './react-scroll-animation.css';
+type StartingPoint = 'top' | 'right' | 'bottom' | 'left';
+type ScrollAnimationTypes = {
+    startingPoint?: StartingPoint;
+    duration?: number;
+    amount?: 'sm' | 'md' | 'lg' | 'xl';
+    delay?: number;
+    repeat?: boolean;
+};
 type PropsType = {
-    children: React.ReactNode;
-} & ScrollAnimationTypes & React.ComponentProps<'div'>;
+    children: React.ReactElement;
+} & ScrollAnimationTypes;
 /**
    * @example
    * type ScrollAnimationTypes {
@@ -17,8 +20,8 @@ type PropsType = {
         // default: 0.5, 애니메이션 지속시간입니다. 단위는 '초'이며 0보다 작을 수 없습니다.
         duration?: number;
 
-        // default: 100, 애니메이션 움직임의 양입니다. 단위는 px이며, 0보다 작을 수 없습니다.
-        amount?: number;
+        // default: md, 애니메이션 움직임의 양입니다.
+        amount?: 'sm' | 'md' | 'lg' | 'xl';
 
         // default : 0, 스크롤 감지 후 애니메이션 실행 지연시간입니다. 0보다 작을 수 없습니다.
         delay?: number;
@@ -27,5 +30,5 @@ type PropsType = {
         repeat?: boolean;
     }
    */
-export declare const ScrollAnimation: ({ children, startingPoint, duration, amount, delay, repeat, ...rest }: PropsType) => import("react/jsx-runtime").JSX.Element;
+export declare const ScrollAnimation: ({ children, startingPoint, duration, amount, delay, repeat, }: PropsType) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;
 export {};

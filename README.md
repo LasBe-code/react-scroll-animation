@@ -17,10 +17,9 @@ $ npm i @lasbe/react-scroll-animation
 | :-----------: | ---------------------------------------------- | :---------------: | -------------------------------------------------------------------------------------- |
 | startingPoint | `'top'` or `'right'` or `'bottom'` or `'left'` |      `'top'`      | 애니메이션 시작 지점입니다.                                                            |
 |   duration    | `number`                                       |       `0.5`       | 애니메이션 지속시간입니다. 단위는 '초'이며 0보다 작을 수 없습니다.                     |
-|    amount     | `number`                                       |       `100`       | 애니메이션 움직임의 양입니다. 단위는 px이며, 0보다 작을 수 없습니다.                   |
+|    amount     | `sm` or `md` or `lg` or `xl`                   |       `md`        | 애니메이션 움직임의 양입니다.                                                          |
 |     delay     | `number`                                       |        `0`        | 스크롤 감지 후 애니메이션 실행 지연시간입니다. 단위는 '초'이며 0보다 작을 수 없습니다. |
 |    repeat     | `boolean`                                      |      `false`      | 범위를 벗어났을 때 애니메이션 재적용 여부입니다.                                       |
-|    ...rest    | `React.ComponentProps<'div'>`                  |         -         | 기본적인 div HTML Element properties를 사용해 요소를 핸들링할 수 있습니다.             |
 
 ### 사용 방법
 
@@ -44,3 +43,15 @@ function App() {
 
 export default App;
 ```
+
+## Release Note
+
+### v1
+
+- styled-component를 이용해 감싼 컨테이너로 애니메이션 적용
+
+### v2
+
+- styled-component 의존성을 제거하고 css로 동작.
+- React.cloneElement를 이용해 감싸진 컴포넌트가 기존 애니메이션 컨테이너에 의해 스타일링이 망가지는 문제 해결
+- 애니메이션 움직임 양을 조절하는 props인 `amount` 타입이 **number -> 문자열 유니온 타입**으로 변경

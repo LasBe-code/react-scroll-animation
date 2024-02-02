@@ -1,39 +1,35 @@
-import styled from 'styled-components';
 import React from 'react';
 import { ScrollAnimation } from './lib';
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-`;
-
-const Wrapper = styled.div`
-  font-size: 30px;
-  font-weight: 900;
-`;
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flex: 1,
+  height: '100vh',
+  fontSize: '50px',
+};
 
 function App() {
   return (
-    <>
-      <Container>
-        <ScrollAnimation startingPoint="left" amount={300}>
-          <Wrapper onClick={() => console.log('hi')}>abc</Wrapper>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '200vh' }}>
+      <div style={style}>
+        <ScrollAnimation startingPoint="left" amount={'xl'}>
+          <div onClick={() => console.log('hi')}>abc</div>
         </ScrollAnimation>
-        <ScrollAnimation startingPoint="right" amount={300} duration={0.5} repeat={true} delay={1}>
-          <Wrapper>abc</Wrapper>
+        <ScrollAnimation startingPoint="right" amount={'xl'} duration={0.5} repeat={true} delay={1}>
+          <div>abc</div>
         </ScrollAnimation>
-      </Container>
-      <Container>
-        <ScrollAnimation startingPoint="top" amount={300} repeat={true}>
-          <Wrapper>abc</Wrapper>
+      </div>
+      <div style={style}>
+        <ScrollAnimation startingPoint="top" amount={'md'} repeat={true}>
+          <div>abc</div>
         </ScrollAnimation>
-        <ScrollAnimation startingPoint="bottom" amount={300}>
-          <Wrapper>abc</Wrapper>
+        <ScrollAnimation startingPoint="bottom" amount={'md'}>
+          <div>abc</div>
         </ScrollAnimation>
-      </Container>
-    </>
+      </div>
+    </div>
   );
 }
 

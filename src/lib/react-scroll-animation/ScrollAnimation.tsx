@@ -1,15 +1,20 @@
-import { Container } from './ScrollAnimation.styled';
-import { ScrollAnimationTypes } from './ScrollAnimation.types';
+import React from 'react';
 import { useScrollAnimation } from './useScrollAnimation';
-/**
- * 1. 애니메이션 시작지점
- * 2. 애니메이션 지속 시간
- * 3. 애니메이션 움직임 크기
- */
+import './react-scroll-animation.css';
+
+type StartingPoint = 'top' | 'right' | 'bottom' | 'left';
+
+type ScrollAnimationTypes = {
+  startingPoint?: StartingPoint;
+  duration?: number;
+  amount?: 'sm' | 'md' | 'lg' | 'xl';
+  delay?: number;
+  repeat?: boolean;
+};
+
 type PropsType = {
-  children: React.ReactNode;
-} & ScrollAnimationTypes &
-  React.ComponentProps<'div'>;
+  children: React.ReactElement;
+} & ScrollAnimationTypes;
 
 /**
    * @example
@@ -20,8 +25,8 @@ type PropsType = {
         // default: 0.5, 애니메이션 지속시간입니다. 단위는 '초'이며 0보다 작을 수 없습니다.
         duration?: number;
 
-        // default: 100, 애니메이션 움직임의 양입니다. 단위는 px이며, 0보다 작을 수 없습니다.
-        amount?: number;
+        // default: md, 애니메이션 움직임의 양입니다.
+        amount?: 'sm' | 'md' | 'lg' | 'xl';
 
         // default : 0, 스크롤 감지 후 애니메이션 실행 지연시간입니다. 0보다 작을 수 없습니다.
         delay?: number;
@@ -34,28 +39,25 @@ export const ScrollAnimation = ({
   children,
   startingPoint = 'top',
   duration = 0.5,
-  amount = 100,
+  amount = 'md',
   delay = 0,
   repeat = false,
-  ...rest
 }: PropsType) => {
   const { ref, isInViewport } = useScrollAnimation(repeat, delay);
 
   if (duration < 0) throw new Error('duration 값(애니메이션 지속 시간)은 0보다 작을 수 없습니다.');
-  if (amount < 0) throw new Error('amount 값(애니메이션 움직임 양)은 0보다 작을 수 없습니다.');
   if (delay < 0) throw new Error('딜레이 시간은 0보다 작을 수 없습니다.');
 
-  return (
-    <Container
-      {...rest}
-      ref={ref}
-      $startingPoint={startingPoint}
-      $duration={duration}
-      $amount={amount}
-      $visible={isInViewport}
-      className={isInViewport ? `frame-in ${rest.className}` : rest.className}
-    >
-      {children}
-    </Container>
-  );
+  return React.cloneElement(children, {
+    ref: ref,
+    style: {
+      ...children?.props?.style,
+      opacity: isInViewport ? 1 : 0,
+      animation:
+        isInViewport &&
+        `
+    scroll-animation-${startingPoint}-${amount} ${duration}s forwards ease-out
+  `,
+    },
+  });
 };
