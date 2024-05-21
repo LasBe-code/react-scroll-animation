@@ -1,16 +1,6 @@
 import React from 'react';
 import './react-scroll-animation.css';
-type StartingPoint = 'top' | 'right' | 'bottom' | 'left';
-export type ScrollAnimationTypes = {
-    startingPoint?: StartingPoint;
-    duration?: number;
-    amount?: 'sm' | 'md' | 'lg' | 'xl';
-    delay?: number;
-    repeat?: boolean;
-};
-type PropsType = {
-    children: React.ReactElement;
-} & ScrollAnimationTypes;
+import { ScrollAnimationPropsType } from './types';
 /**
    * @example
    * type ScrollAnimationTypes {
@@ -30,5 +20,4 @@ type PropsType = {
         repeat?: boolean;
     }
    */
-export declare const ScrollAnimation: ({ children, startingPoint, duration, amount, delay, repeat, }: PropsType) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-export {};
+export declare const ScrollAnimation: ({ children, startingPoint, duration, amount, delay, repeat, }: ScrollAnimationPropsType) => React.ReactElement<any, string | React.JSXElementConstructor<any>>;

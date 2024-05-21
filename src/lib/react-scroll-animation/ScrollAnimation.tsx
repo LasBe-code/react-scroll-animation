@@ -1,20 +1,7 @@
 import React from 'react';
 import { useScrollAnimation } from './useScrollAnimation';
 import './react-scroll-animation.css';
-
-type StartingPoint = 'top' | 'right' | 'bottom' | 'left';
-
-export type ScrollAnimationTypes = {
-  startingPoint?: StartingPoint;
-  duration?: number;
-  amount?: 'sm' | 'md' | 'lg' | 'xl';
-  delay?: number;
-  repeat?: boolean;
-};
-
-type PropsType = {
-  children: React.ReactElement;
-} & ScrollAnimationTypes;
+import { ScrollAnimationPropsType } from './types';
 
 /**
    * @example
@@ -42,7 +29,7 @@ export const ScrollAnimation = ({
   amount = 'md',
   delay = 0,
   repeat = false,
-}: PropsType) => {
+}: ScrollAnimationPropsType) => {
   const { ref, isInViewport } = useScrollAnimation(repeat, delay);
 
   if (duration < 0) throw new Error('duration 값(애니메이션 지속 시간)은 0보다 작을 수 없습니다.');
