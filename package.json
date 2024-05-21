@@ -1,6 +1,6 @@
 {
   "name": "@lasbe/react-scroll-animation",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "private": false,
   "license": "MIT",
   "main": "dist/index.js",
@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "compile": "rm -rf dist && mkdir dist && tsc"
+    "compile": "rm -rf dist && mkdir dist && tsc && cp src/lib/react-scroll-animation/react-scroll-animation.css dist/react-scroll-animation"
   },
   "exports": {
     ".": {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './react-scroll-animation.css';
 type StartingPoint = 'top' | 'right' | 'bottom' | 'left';
-type ScrollAnimationTypes = {
+export type ScrollAnimationTypes = {
     startingPoint?: StartingPoint;
     duration?: number;
     amount?: 'sm' | 'md' | 'lg' | 'xl';
