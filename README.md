@@ -1,3 +1,5 @@
+![NPM Downloads](https://img.shields.io/npm/dt/%40lasbe%2Freact-scroll-animation)
+
 # @lasbe/react-scroll-animation
 
 손쉽게 스크롤 애니메이션을 구현할 수 있는 리액트 컴포넌트 패키지입니다.  
