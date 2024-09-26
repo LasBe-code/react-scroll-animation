@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { useScrollAnimation } from './useScrollAnimation';
 import './react-scroll-animation.css';
